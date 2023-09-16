@@ -61,8 +61,16 @@ AFRAME.registerComponent("bullets", {
 
     if (elementHit.id.includes("enemy")) {
       //Add code here
-
-      
+      var counttank=document.querySelector("#countTank");
+      var tankfire=praseIt(counttank.getAttribute("text").value);
+      tanksfire -=1;
+      counttank.setAttribute("text",{
+        value:tankfire
+      })
+      if(tankfire===0){
+        var txt=document.querySelector("#completed")
+        txt.setAttribute("visible",true)
+      }
       scene.removeChild(elementHit);
     }
     //remove event listener
